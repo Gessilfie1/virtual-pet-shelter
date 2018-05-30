@@ -34,6 +34,43 @@ public class VirtualPetShelter {
 		pet1.modifyHunger(+2);
 		
 	}
+	
+	public void feedAllPets(VirtualPet pets) {
+		pets.modifyHunger(+10); 
+	}
+	
+	public void tick() {
+//		if (pets.() + 1 > 6) {// if hunger reaches max
+//			System.out.println(
+//					"Alright...That's enough. I'm running my tail off here. Get me some food before I pass out.");
+//
+//			continue;
+//		}
+//
+//		if (pet.getSleepy() + 1 > 6) { // if sleepy reaches max
+//			System.out.println(" I'm tired. I need some chill time. Let's go watch a movie or somethin'");
+//
+//			continue;
+		
+		// If hunger reaches minimum
+//		if (pet.getHunger() - 1 < 0) {
+//			System.out.println("ugggg....no more. One more bite of cheese and I'm gonna throw up.");
+//			continue;
+//		}
+//
+//		if (pet.getSleepy() + 1 > 6) { // if sleepy reaches max
+//			System.out.println(" I'm tired. I need some chill time. Let's go watch a movie or somethin'");
+//
+//			continue;
+//		}
+		
+//		if (pet.getBoredom() + 1 > 6) {
+//			System.out.println("I'm bored. Let's go out and Play!");
+//
+//			continue;
+//		}
+		}
+	}
 
 	
 
@@ -44,4 +81,4 @@ public class VirtualPetShelter {
 	
 	
 
-}
+
