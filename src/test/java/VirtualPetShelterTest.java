@@ -10,40 +10,39 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class VirtualPetShelterTest {
-	
+
 	VirtualPetShelter underTest;
 	VirtualPet pet1;
 	VirtualPet pet2;
-	
+
 	@Before
 	public void setup() {
 		underTest = new VirtualPetShelter();
 		pet1 = new VirtualPet("name1", "description1");
 		pet2 = new VirtualPet("name2", "description2");
 	}
-	
-	//To add Pet
+
+	// To add Pet
 	@Test
 	public void shouldBeAbleToAddPet() {
 		underTest.add(pet1);
 		VirtualPet retrievedPet = underTest.findPet("name1");
 		assertThat(retrievedPet, is(pet1));
-		
-		
+
 	}
-	
+
 	@Test
 	public void shouldBeAbleToAddTwoPets() {
 		underTest.add(pet1);
 		underTest.add(pet2);
-		
+
 		Collection<VirtualPet> allPets = underTest.getAllPets();
-		
-		//assertThat(allPets, containsInAnyOrder(pet1,pet2));
-		assertEquals(2, allPets.size());		
-		
+
+		// assertThat(allPets, containsInAnyOrder(pet1,pet2));
+		assertEquals(2, allPets.size());
+
 	}
-	
+
 	@Test
 	public void shouldBeAbleToAdoptAPet() {
 		underTest.add(pet1);
@@ -51,20 +50,20 @@ public class VirtualPetShelterTest {
 		VirtualPet retrievedPet = underTest.findPet(pet1.getPetName());
 		assertThat(retrievedPet, is(nullValue()));
 	}
-	
+
 	@Test
 	public void shouldFeedPet() {
 		underTest.feed(pet1);
-		//VirtualPet petHunger = underTest.findPet(pet1.getPetName()).getHunger();
+		// VirtualPet petHunger = underTest.findPet(pet1.getPetName()).getHunger();
 		assertThat(pet1.getHunger(), is(102));
-		
+
 	}
-	
+
 	@Test
 	public void shouldFeedAllPets() {
 		underTest.add(pet1);
 		underTest.add(pet2);
-		
+
 		// Check pet1 and pet2 hunger before feeding
 		assertThat(pet1.getHunger(), is(100));
 		assertThat(pet2.getHunger(), is(100));
@@ -74,17 +73,7 @@ public class VirtualPetShelterTest {
 		// Check pet1 and pet2 hunter after
 		assertThat(pet1.getHunger(), is(80));
 		assertThat(pet2.getHunger(), is(80));
-		
-		// Assert that pet1 hunger after is less than before - same with pet2
-		
-//		Collection<VirtualPet> feedAllPets = underTest.feedAllPets();
-		
-		
-		
+
 	}
-	
-	
-	
-	
 
 }
