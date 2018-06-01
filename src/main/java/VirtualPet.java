@@ -19,10 +19,19 @@ public class VirtualPet {
 		return petName;
 	}
 	
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+	
 	public String getPetDescription() {
 		return petDescription;
 	}
-
+	
+	public void setPetDescription(String petDescription) {
+		this.petDescription = petDescription;
+	}
+	
+	
 	public int getHunger() {
 		return hunger;
 	}
@@ -49,10 +58,4 @@ public class VirtualPet {
 		thirst += t;
 	}
 
-//	// tick method to randomize game loop
-//	public void tick() {
-//		hunger += 2;
-//		boredom += 2;
-//		thirst += 1;
-//	}
 }

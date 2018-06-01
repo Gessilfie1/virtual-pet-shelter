@@ -47,7 +47,7 @@ public class VirtualPetShelterTest {
 	@Test
 	public void shouldBeAbleToAdoptAPet() {
 		underTest.add(pet1);
-		underTest.adopt(pet1);
+		underTest.adopt(pet1.getPetName());
 		VirtualPet retrievedPet = underTest.findPet(pet1.getPetName());
 		assertThat(retrievedPet, is(nullValue()));
 	}
@@ -56,7 +56,30 @@ public class VirtualPetShelterTest {
 	public void shouldFeedPet() {
 		underTest.feed(pet1);
 		//VirtualPet petHunger = underTest.findPet(pet1.getPetName()).getHunger();
-		assertThat(pet1.getHunger(), is(3));
+		assertThat(pet1.getHunger(), is(102));
+		
+	}
+	
+	@Test
+	public void shouldFeedAllPets() {
+		underTest.add(pet1);
+		underTest.add(pet2);
+		
+		// Check pet1 and pet2 hunger before feeding
+		assertThat(pet1.getHunger(), is(100));
+		assertThat(pet2.getHunger(), is(100));
+		// Feed all pets
+		Collection<VirtualPet> petCollection = underTest.getAllPets();
+		underTest.feedAllPets();
+		// Check pet1 and pet2 hunter after
+		assertThat(pet1.getHunger(), is(80));
+		assertThat(pet2.getHunger(), is(80));
+		
+		// Assert that pet1 hunger after is less than before - same with pet2
+		
+//		Collection<VirtualPet> feedAllPets = underTest.feedAllPets();
+		
+		
 		
 	}
 	
