@@ -134,10 +134,10 @@ public class VirtualPetShelterApp {
 				System.out.println("Invalid selection. Please select one of the numbers listed");
 			}
 
-			pets.tick(pet1);
-			pets.tick(pet2);
-			pets.tick(pet3);
-			pets.tick(pet4);
+			for (VirtualPet myPetTick : pets.getAllPets()) {
+				pets.tick(myPetTick);
+			}
+
 
 		} while (select != 0);
 
